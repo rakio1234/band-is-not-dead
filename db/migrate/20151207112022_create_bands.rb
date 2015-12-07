@@ -4,6 +4,7 @@ class CreateBands < ActiveRecord::Migration
       t.string :name, null: false
       t.string :image
       t.text :description, null: false
+
       t.timestamps null: false
     end
   end
