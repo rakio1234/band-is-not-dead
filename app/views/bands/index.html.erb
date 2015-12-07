@@ -16,7 +16,13 @@
     <% @bands.each do |band| %>
       <tr>
         <td><%= band.name %></td>
-        <td><%= band.image %></td>
+        <td>
+          <% if band.image? %>
+            <div class="thumbnail">
+              <%= image_tag band.image.url %>
+            </div>
+          <% end %>
+        </td>
         <td><%= band.description %></td>
         <td><%= link_to 'Show', band %></td>
         <td><%= link_to 'Edit', edit_band_path(band) %></td>

@@ -7,7 +7,11 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @band.image %>
+  <% if @band.image? %>
+    <div class="thumbnail">
+      <%= image_tag @band.image.url %>
+    </div>
+  <% end %>
 </p>
 
 <p>

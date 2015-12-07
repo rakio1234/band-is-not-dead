@@ -12,7 +12,11 @@
       <% @bands.each do |band| %>
         <div class="col-xs-6 col-lg-4">
           <h2><%= band.name %></h2>
-          <p><%= band.image %></p>
+          <% if band.image? %>
+            <p class="thumbnail">
+              <%= image_tag band.image.url %>
+            </p>
+          <% end %>
           <p><%= band.description %></p>
           <p><%= link_to '詳細', band_path(band), { :class => "btn btn-default" } %></p>
         </div><!--/.col-xs-6.col-lg-4-->

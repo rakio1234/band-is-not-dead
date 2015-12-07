@@ -16,8 +16,23 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
+    <% if @band.image? %>
+      <div class="thumbnail">
+        <%= image_tag @band.image.url %>
+      </div>
+    <% end %><br>
     <%= f.label :image %><br>
-    <%= f.text_field :image %>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
+  </div>
+  <div class="field">
+    <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
+    <% if @band.persisted? && @band.image? %>
+      <label>
+        <%= f.check_box :remove_image %>
+        画像を削除
+      </label>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
