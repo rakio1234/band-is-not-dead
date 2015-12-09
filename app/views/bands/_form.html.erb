@@ -1,4 +1,4 @@
-<%= form_for(@band) do |f| %>
+<%= form_for(@band, :html => { :multipart => true }) do |f| %>
   <% if @band.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@band.errors.count, "error") %> prohibited this band from being saved:</h2>
@@ -34,6 +34,17 @@
       </label>
     <% end %>
   </div>
+  <%= f.fields_for :images do |p| %>
+    <% if @images[0].persisted? && @images[0].attachment? %>
+      <div class="field">
+        <div class="thumbnail">
+          <%= image_tag @images[0].attachment.url %>
+        </div>
+        <%= p.label '画像2' %><br>
+        <%= p.file_field :attachment%>
+     </div>
+    <% end %>
+  <% end %>
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
