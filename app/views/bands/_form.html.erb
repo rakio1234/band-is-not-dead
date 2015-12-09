@@ -16,6 +16,15 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
+    <% if @band.music? %>
+      <div class="music">
+        <%= audio_tag @band.music.url , controls: true %>
+      </div>
+    <% end %>
+    <%= f.label :music %><br>
+    <%= f.file_field :music %>
+  </div>
+  <div class="field">
     <% if @band.image? %>
       <div class="thumbnail">
         <%= image_tag @band.image.url %>
