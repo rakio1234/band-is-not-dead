@@ -12,17 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label 'バンド名' %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <% if @band.music? %>
-      <div class="music">
-        <%= audio_tag @band.music.url , controls: true %>
-      </div>
-    <% end %>
-    <%= f.label :music %><br>
-    <%= f.file_field :music %>
+    <%= f.label 'メンバー' %><br>
+    <%= f.text_area :member, placeholder: "ボーカル: たくみ\nギター: ゆうすけ\nドラム: まさる" %>
   </div>
   <div class="field">
     <% if @band.image? %>
@@ -54,6 +49,15 @@
      </div>
     <% end %>
   <% end %>
+  <div class="field">
+    <% if @band.music? %>
+      <div class="music">
+        <%= audio_tag @band.music.url , controls: true %>
+      </div>
+    <% end %>
+    <%= f.label :music %><br>
+    <%= f.file_field :music %>
+  </div>
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>

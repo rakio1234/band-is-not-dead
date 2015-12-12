@@ -73,6 +73,7 @@ class BandsController < ApplicationController
     def band_params
       params.require(:band).permit(
         :name,
+        :member,
         :music,
         :image,
         :description,

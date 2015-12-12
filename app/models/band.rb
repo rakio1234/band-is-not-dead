@@ -6,5 +6,6 @@ class Band < ActiveRecord::Base
   mount_uploader :image, ImageUploader
   mount_uploader :music, MusicUploader
   validates :name, presence: true
+  validates :member, presence: true
   validates :description, presence: true
 end
