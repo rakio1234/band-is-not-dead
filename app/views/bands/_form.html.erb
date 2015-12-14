@@ -59,6 +59,10 @@
     <%= f.file_field :music %>
   </div>
   <div class="field">
+    <%= f.label :genre_list, "ジャンル（カンマ区切り）" %><br>
+    <%= text_field_tag 'band[genre_list]', @band.genre_list.join(','), "data-role" => "tagsinput" %>
+  </div>
+  <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>

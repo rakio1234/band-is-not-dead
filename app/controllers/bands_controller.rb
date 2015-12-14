@@ -79,6 +79,7 @@ class BandsController < ApplicationController
         :description,
         :image_cache,
         :remove_image,
+        :genre_list,
         images_attributes: [:id, :attachment, :_destroy]
       )
     end
