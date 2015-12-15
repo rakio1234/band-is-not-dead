@@ -39,7 +39,7 @@
     <% end %>
   </div>
   <%= f.fields_for :images do |p| %>
-    <% if @images[0].persisted? && @images[0].attachment? %>
+    <% if @images.present? && @images[0].persisted? && @images[0].attachment? %>
       <div class="field">
         <div class="thumbnail">
           <%= image_tag @images[0].attachment.url %>
@@ -59,8 +59,8 @@
     <%= f.file_field :music %>
   </div>
   <div class="field">
-    <%= f.label :genre_list, "ジャンル（カンマ区切り）" %><br>
-    <%= text_field_tag 'band[genre_list]', @band.genre_list.join(','), "data-role" => "tagsinput" %>
+    <ul id="genre-tags">
+    </ul>
   </div>
   <div class="field">
     <%= f.label :description %><br>

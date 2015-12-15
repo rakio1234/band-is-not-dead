@@ -1,5 +1,7 @@
 class BandsController < ApplicationController
   before_action :set_band, only: [:show, :edit, :update, :destroy]
+  before_action :set_genre_tags_to_gon, only: [:edit]
+  before_action :set_available_tags_to_gon
 
   # GET /bands
   # GET /bands.json
@@ -82,5 +84,13 @@ class BandsController < ApplicationController
         :genre_list,
         images_attributes: [:id, :attachment, :_destroy]
       )
+    end
+
+    def set_genre_tags_to_gon
+      gon.genre_tags = @band.genre_list
+    end
+
+    def set_available_tags_to_gon
+      gon.available_tags =  Band.tags_on(:genres).pluck(:name)
     end
 end

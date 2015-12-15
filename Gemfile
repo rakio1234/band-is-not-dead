@@ -27,7 +27,11 @@ gem 'bootstrap-sass'
 
 gem 'carrierwave'
 
+gem 'jquery-ui-rails'
+
 gem 'acts-as-taggable-on'
+
+gem 'gon'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
