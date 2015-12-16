@@ -29,6 +29,13 @@
 </p>
 
 <p>
+  <strong>Genre:</strong>
+  <% if @band.genre_list.present? %>
+    <%= render 'bands/tag_list', tag_list: @band.genre_list %>
+  <% end %>
+</p>
+
+<p>
   <strong>Description:</strong>
   <%= @band.description %>
 </p>
