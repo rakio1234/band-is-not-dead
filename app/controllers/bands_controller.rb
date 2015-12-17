@@ -22,7 +22,7 @@ class BandsController < ApplicationController
 
   # GET /bands/1/edit
   def edit
-   @images = @band.images
+    @images = @band.images
   end
 
   # POST /bands
@@ -82,6 +82,7 @@ class BandsController < ApplicationController
         :image_cache,
         :remove_image,
         :genre_list,
+        :prefecture,
         images_attributes: [:id, :attachment, :_destroy]
       )
     end

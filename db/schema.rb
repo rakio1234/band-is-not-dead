@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151214131422) do
+ActiveRecord::Schema.define(version: 20151217103724) do
 
   create_table "bands", force: :cascade do |t|
     t.string   "name",        limit: 255,   null: false
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20151214131422) do
     t.datetime "updated_at",                null: false
     t.string   "music",       limit: 255
     t.text     "member",      limit: 65535, null: false
+    t.string   "prefecture",  limit: 255
   end
 
   create_table "images", force: :cascade do |t|
@@ -31,6 +32,12 @@ ActiveRecord::Schema.define(version: 20151214131422) do
   end
 
   add_index "images", ["band_id"], name: "index_images_on_band_id", using: :btree
+
+  create_table "places", force: :cascade do |t|
+    t.integer  "prefecture_code", limit: 4, null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id",        limit: 4

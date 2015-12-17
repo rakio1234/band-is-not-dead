@@ -33,6 +33,8 @@ gem 'acts-as-taggable-on'
 
 gem 'gon'
 
+gem 'jp_prefecture'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -43,7 +45,19 @@ gem 'gon'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  # 高機能コンソール
+  gem 'pry-rails'
+
+  # デバッガー
   gem 'pry-byebug'
+  gem 'pry-stack_explorer'
+
+  # pryの入出力に色付け
+  gem 'pry-coolline'
+  gem 'awesome_print'
+  gem 'hirb'
+  gem 'hirb-unicode'
+  gem 'did_you_mean'
 end
 
 group :development do
@@ -55,5 +69,7 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'rubocop'
+  gem 'guard-rubocop'
 end
 
