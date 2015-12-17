@@ -59,6 +59,12 @@
     <%= f.file_field :music %>
   </div>
   <div class="field">
+    <label>活動年</label>
+    <%= f.select :start_year, (Time.zone.now.year - 20)..(Time.zone.now.year) %>年頃から
+    〜
+    <%= f.select :end_year, (Time.zone.now.year - 20)..(Time.zone.now.year) %>年頃まで
+  </div>
+  <div class="field">
     <ul id="genre-tags">
     </ul>
   </div>

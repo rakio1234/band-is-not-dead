@@ -83,6 +83,8 @@ class BandsController < ApplicationController
         :remove_image,
         :genre_list,
         :prefecture,
+        :start_year,
+        :end_year,
         images_attributes: [:id, :attachment, :_destroy]
       )
     end

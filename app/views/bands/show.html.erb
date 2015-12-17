@@ -45,5 +45,10 @@
     <%= @band.prefecture %>
 </p>
 
+<p>
+  <strong>活動年:</strong>
+  <%= @band.start_year %>年頃から〜<%= @band.end_year %>年頃まで
+</p>
+
 <%= link_to 'Edit', edit_band_path(@band) %> |
 <%= link_to 'Back', bands_path %>
