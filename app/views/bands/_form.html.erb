@@ -39,7 +39,7 @@
     <% end %>
   </div>
   <%= f.fields_for :images do |p| %>
-    <% if @images.present? && @images[0].persisted? && @images[0].attachment? %>
+    <% if @images[0].present? && @images[0].persisted? && @images[0].attachment? %>
       <div class="field">
         <div class="thumbnail">
           <%= image_tag @images[0].attachment.url %>

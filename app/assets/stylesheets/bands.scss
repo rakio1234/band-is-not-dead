@@ -3,5 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .thumbnail {
-  width: 240px;
+  width: 100%;
+}
+
+.band-card {
+  border: solid 1px #ccc;
+  border-radius: 9px;
+  padding: 0 15px 15px 15px;
 }

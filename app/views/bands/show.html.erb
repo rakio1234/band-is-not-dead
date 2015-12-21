@@ -1,54 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @band.name %>
-</p>
+<h2><%= @band.name %></h2>
+<div class="clearfix">
+  <div class="pull-left">
+    <% if @band.image? %>
+      <div class="thumbnail">
+        <%= image_tag @band.image.url %>
+      </div>
+    <% end %>
+    <% if @band.genre_list.present? %>
+      <%= render 'bands/tag_list', tag_list: @band.genre_list %>
+    <% end %>
+  </div>
+  <div class="pull-left">
+    <p>活動期間：<%= @band.start_year %>年頃から〜<%= @band.end_year %>年頃まで</p>
+    <p>主な活動地域：<%= @band.prefecture %></p>
+    <p>メンバー：</p>
+    <p>
+      <%= parse_as_html @band.member %>
+    </p>
+  </div>
+</div>
 
-<p>
-  <strong>Member:</strong>
-  <%= @band.member %>
-</p>
-
-<p>
-  <strong>Music:</strong>
-  <% if @band.music? %>
-    <div class="music">
-      <%= audio_tag @band.music.url , controls: true %>
-    </div>
-  <% end %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <% if @band.image? %>
-    <div class="thumbnail">
-      <%= image_tag @band.image.url %>
-    </div>
-  <% end %>
-</p>
-
-<p>
-  <strong>Genre:</strong>
-  <% if @band.genre_list.present? %>
-    <%= render 'bands/tag_list', tag_list: @band.genre_list %>
-  <% end %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @band.description %>
-</p>
-
-<p>
-  <strong>Prefecture:</strong>
-    <%= @band.prefecture %>
-</p>
-
-<p>
-  <strong>活動年:</strong>
-  <%= @band.start_year %>年頃から〜<%= @band.end_year %>年頃まで
-</p>
-
+<div class="">
+  <p>
+    <strong>Music:</strong>
+    <% if @band.music? %>
+      <div class="music">
+        <%= audio_tag @band.music.url , controls: true %>
+      </div>
+    <% end %>
+  </p>
+  <p>
+    <strong>Description:</strong>
+    <%= @band.description %>
+  </p>
+</div>
 <%= link_to 'Edit', edit_band_path(@band) %> |
 <%= link_to 'Back', bands_path %>
