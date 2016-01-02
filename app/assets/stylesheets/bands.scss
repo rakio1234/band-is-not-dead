@@ -2,12 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.thumbnail {
-  width: 100%;
-}
-
 .band-card {
+  .thumbnail {
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .detail-area{
+    margin: 12px 2px;
+  }
   border: solid 1px #ccc;
   border-radius: 9px;
-  padding: 0 15px 15px 15px;
+  padding: 0 15px 5px 15px;
 }

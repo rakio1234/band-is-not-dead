@@ -18,13 +18,16 @@
                 <%= image_tag band.image.url %>
               </p>
             <% end %>
-            <% if band.genre_list.present? %>
-              <%= render 'bands/tag_list', tag_list: band.genre_list %>
-            <% end %>
-            <p><%= band.prefecture %></p>
-            <p><%= band.start_year %>〜<%= band.end_year %></p>
-            <p><%= band.description %></p>
-            <p><%= link_to '詳細', band_path(band), { :class => "btn btn-default" } %></p>
+            <div class="
+detail-area">
+              <% if band.genre_list.present? %>
+                <p><b>ジャンル：</b><%= render 'bands/tag_list', tag_list: band.genre_list %></p>
+              <% end %>
+              <p><b>活動地域：</b><%= band.prefecture %></p>
+              <p><b>活動期間：</b><%= band.start_year %>〜<%= band.end_year %></p>
+              <p><%= band.description %></p>
+            </div>
+            <p><%= link_to '詳細', band_path(band), { :class => "btn btn-default btn-block" } %></p>
           </div>
         </div><!--/.col-xs-6.col-lg-4-->
       <% end %>
