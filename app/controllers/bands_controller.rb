@@ -6,7 +6,11 @@ class BandsController < ApplicationController
   # GET /bands
   # GET /bands.json
   def index
-    @bands = Band.all
+    if current_user.admin?
+      @bands = Band.all
+    else
+      @bands = current_user.bands
+    end
   end
 
   # GET /bands/1
@@ -28,7 +32,7 @@ class BandsController < ApplicationController
   # POST /bands
   # POST /bands.json
   def create
-    @band = Band.new(band_params)
+    @band = current_user.bands.build(band_params)
 
     respond_to do |format|
       if @band.save

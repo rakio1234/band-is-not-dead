@@ -2,6 +2,7 @@ class Band < ActiveRecord::Base
   acts_as_taggable_on :genres
   acts_as_taggable
   has_many :images
+  belongs_to :user
   accepts_nested_attributes_for :images, allow_destroy: true
 
   mount_uploader :image, ImageUploader

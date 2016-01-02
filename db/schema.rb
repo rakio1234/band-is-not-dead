@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160102080126) do
+ActiveRecord::Schema.define(version: 20160102115421) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -39,7 +39,10 @@ ActiveRecord::Schema.define(version: 20160102080126) do
     t.string   "prefecture",  limit: 255
     t.integer  "start_year",  limit: 4
     t.integer  "end_year",    limit: 4
+    t.integer  "user_id",     limit: 4
   end
+
+  add_index "bands", ["user_id"], name: "index_bands_on_user_id", using: :btree
 
   create_table "images", force: :cascade do |t|
     t.integer  "band_id",    limit: 4,   null: false
@@ -96,4 +99,5 @@ ActiveRecord::Schema.define(version: 20160102080126) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "bands", "users"
 end
