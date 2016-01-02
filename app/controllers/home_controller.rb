@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @bands = Band.all
+    @bands = Band.page(params[:page])
   end
 end
