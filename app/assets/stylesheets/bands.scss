@@ -14,3 +14,32 @@
   border-radius: 9px;
   padding: 0 15px 5px 15px;
 }
+
+.form-container {
+  margin: auto;
+  max-width: 730px;
+  .form-area {
+    padding: 38px;
+    background-color: rgba(204, 204, 204, 0.18);
+    border-radius: 9px;
+    border: 1px solid rgba(204, 204, 204, 0.44);
+    .required {
+      font-size: 0.8em;
+      color: #ed4e52;
+      border: 1px solid #ed4e52;
+      border-radius: 3px;
+      padding: 3px 5px;
+      margin-left: 6px;
+      &:after {content: "必須" }
+    }
+    .option {
+      font-size: 0.8em;
+      color: #4E76ED;
+      border: 1px solid #4E76ED;
+      border-radius: 3px;
+      padding: 3px 5px;
+      margin-left: 6px;
+      &:after {content: "任意" }
+    }
+  }
+}
